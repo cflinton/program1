@@ -10,8 +10,8 @@ import java.util.Arrays;
 
 public class MyString {
 
-private static char[] letters; //the char array
-private static int currLength; //the length
+private char[] letters; //the char array
+private int currLength; //the length
 
 public MyString(){ //null constructor
 	letters = null;
@@ -23,22 +23,22 @@ public MyString(String word){ //standard construcor
 	currLength = word.length(); //length calculated with array method
 	}
 
-public static int length(){
+public int length(){
 	return currLength;
 	}
 
-private static void ensureCapacity(){
+private void ensureCapacity(){
 	}
 
 public String toString(){
 	return letters.toString(); //string gotten with array method
 	}
 
-public static char[] getArray(){ //method for use in other methods
+public char[] getArray(){ //method for use in other methods
 	return letters;
 	}
 
-public static MyString concat(MyString other){ //concatonation by array method
+public MyString concat(MyString other){ //concatonation by array method
 	char[] otherArr = other.getArray();
 	int aLen = currLength;
 	int bLen = otherArr.length;
@@ -50,7 +50,7 @@ public static MyString concat(MyString other){ //concatonation by array method
 	return concated;
 	}
 
-public static boolean equals(MyString other){
+public boolean equals(MyString other){
 	char[] otherArray = other.getArray();
 	boolean equal;
 	
@@ -59,7 +59,7 @@ public static boolean equals(MyString other){
 	return equal;
 	}
 
-public static int compareTo(MyString other) {
+public int compareTo(MyString other) {
 	int strlen = 0; //base value for length to prevent error checking from whining
 	int n = 0; //counter
 	int relation = 0; //used to determine if letter is earlier or later
@@ -81,31 +81,39 @@ public static int compareTo(MyString other) {
 
 	}
 
-public static char get(int n){
+public char get(int n){
 	return letters[n];
 	}
 
-public static void toUpper(){
+public MyString toUpper(){
 	int n = 0;
 	char c;
+	char[] outArr = new char[currLength];
 	while(n < currLength){ //converts each letter to an upper case letter
 		c = letters[n];
-		letters[n] = Character.toUpperCase(c);
+		outArr[n] = Character.toUpperCase(c);
 		n++;
-	} 
 	}
+	String str = outArr.toString();
+	MyString myStr = new MyString(str);
+	return myStr;
+}
 
-public static void toLower(){
+public MyString toLower(){
 	int n = 0;
 	char c;
+	char[] outArr = new char[currLength];
 	while(n < currLength){ //converts each letter to a lower case letter
 		c = letters[n];
-		letters[n] = Character.toLowerCase(c);
+		outArr[n] = Character.toLowerCase(c);
 		n++;
 	}
-	}
+	String str = outArr.toString();
+	MyString myStr = new MyString(str);
+	return myStr;
+}
 
-public static int indexOf(MyString str){
+public int indexOf(MyString str){
 	int n = 0; //counter
 	int n2 = 0;
 	int n3 = 0; //secondary and tertiary counter
@@ -135,7 +143,7 @@ public static int indexOf(MyString str){
 	return index;
 	}
 
-public static int lastIndexOf(MyString str){
+public int lastIndexOf(MyString str){
 	char[] strArr = str.getArray();
 	char c1 = ' ';
 	char c2 = ' ';
@@ -165,7 +173,7 @@ public static int lastIndexOf(MyString str){
 	return index;
 	}
 
-public static MyString substring(int n){
+public MyString substring(int n){
 	int num = n;
 	int index = 0;
 	char[] subArr = new char[currLength - num]; //empty array made for storage
@@ -179,7 +187,7 @@ public static MyString substring(int n){
 	return newStr;
 	}
 
-public static MyString substring(int n, int m){
+public MyString substring(int n, int m){
 	int num = n;
 	int max = m;
 	int index = 0; 
