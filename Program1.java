@@ -35,7 +35,7 @@ public class Program1 {
         myString3 = myString1.toLower();
         System.out.println("Lower MyString: " + myString3.toString());
         
-        myString3 = myString1.concat("gnirtSyM");
+        myString3 = myString1.concat("gnirtSyM"); //Note: word document says that the parameter should be MyString not String as my instructor coded here.
         System.out.println("Substring: " + myString3.indexOf(new MyString("MyString")));
         
         System.out.println("Testing completed!");
