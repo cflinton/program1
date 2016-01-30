@@ -5,7 +5,7 @@
  */
 package program1;
 
-import MyString;
+import program1.MyString;
 
 public class Program1 {
 
