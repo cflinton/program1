@@ -7,6 +7,7 @@ package program1;
 
 import java.lang.Character;
 import java.util.Arrays;
+import org.apache.commons.lang3.ArrayUtils;
 
 public class MyString {
 
@@ -39,7 +40,8 @@ public static char[] getArray(){ //method for use in other methods
 	}
 
 public static void concat(MyString other){ //concatonation by array method
-	letters = (char[])ArrayUtils.addAll(letters, other.getArray);	
+	char[] otherArray = other.getArray();
+	letters = ArrayUtils.addAll(letters, otherArray);
 	}
 
 public static boolean equals(MyString other){
@@ -61,15 +63,15 @@ public static int compareTo(MyString other) {
 	if(currLength < other.length()){ //sets length of loop to shortest array length
 		strlen = currLength;
 	} else{
-		strlen = other.length;
+		strlen = other.length();
 	}
-	while((n < length) && (relation == 0)){ //loop compares each letter and stops when they aren't equal
+	while((n < strlen) && (relation == 0)){ //loop compares each letter and stops when they aren't equal
 		c1 = letters[n];
 		c2 = otherArray[n];
-		relation = Character.compare(c1, c2);
+		relation = Character.valueOf(c1).compareTo(Character.valueOf(c2));
 		n++;
 	}
-	return total;
+	return relation;
 
 	}
 
@@ -112,7 +114,7 @@ public static int indexOf(MyString str){
 			n3 = n; //tertiary counter set to starting index
 			}
 		while((c1 == c2) && (n2 < strLen)){ //loop compares each letter and stops early if any aren't equal
-			c1 = letter[n3]; //tertiary counter tracks index on main string
+			c1 = letters[n3]; //tertiary counter tracks index on main string
 			c2 = strArr[n2]; //secondary counter tracks index on secondary string
 			n2++;
 			n3++;
@@ -163,7 +165,7 @@ public static MyString substring(int n){
 		index++;
 		}
 	String str = subArr.toString(); 
-	MyString newStr = MyString(str); //subArr is converted to String then to MyString
+	MyString newStr = new MyString(str); //subArr is converted to String then to MyString
 	return newStr;
 	}
 
