@@ -16,7 +16,7 @@ public MyString(){ //null constructor
 	}
 
 public MyString(String word){ //standard construcor
-	letters = word.toCharArray[];
+	letters = word.toCharArray();
 	currLength = word.length(); //length calculated with array method
 	}
 
