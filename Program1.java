@@ -1,5 +1,5 @@
 /*
- * Author: 
+ * Author: Carl Linton
  * Program 1 - MyString
  * CSC230-02 Spring 2016
  */
@@ -9,7 +9,7 @@ public class Program1 {
 
     public static void main(String[] args) {
         //replace <name> with your full name
-        System.out.println("MyString implementation by <name>.");
+        System.out.println("MyString implementation by Carl Linton.");
         
         //anything below here will be erased
         String string1 = "Welcome to MyString.";
