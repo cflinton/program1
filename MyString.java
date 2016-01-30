@@ -7,8 +7,8 @@ package program1;
 
 public class MyString {
 
-private char[] letters; //the char array
-private int currLength; //the length
+private static char[] letters; //the char array
+private static int currLength; //the length
 
 public MyString(){ //null constructor
 	letters = null;
@@ -16,7 +16,7 @@ public MyString(){ //null constructor
 	}
 
 public MyString(String word){ //standard construcor
-	letters = word.toCharArray[].class;
+	letters = word.toCharArray[];
 	currLength = word.length(); //length calculated with array method
 	}
 
@@ -129,7 +129,7 @@ public static int lastIndexOf(MyString str){
 	int strLen = str.length();
 	int n = currLength - strLen; //the counter starts at the highest number it could possibly be, preventing out of bounds errors and saving time
 	int n2, n3;
-	while((n >= 0 && (index == -1)){ //loop starts at last letter the first index could be and works backwards
+	while((n >= 0) && (index == -1)){ //loop starts at last letter the first index could be and works backwards
 		c1 = letters[n];
 		c2 = strArr[0];
 		if(c1.equals(c2)){
