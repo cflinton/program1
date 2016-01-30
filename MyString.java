@@ -108,7 +108,7 @@ public static int indexOf(MyString str){
 			n2 = 0; //match resets secondary counter
 			n3 = n; //tertiary counter set to starting index
 			}
-		while((c1.equals(c2) && (n2 < strLen)){ //loop compares each letter and stops early if any aren't equal
+		while((c1.equals(c2)) && (n2 < strLen)){ //loop compares each letter and stops early if any aren't equal
 			c1 = letter[n3]; //tertiary counter tracks index on main string
 			c2 = strArr[n2]; //secondary counter tracks index on secondary string
 			n2++;
