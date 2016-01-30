@@ -16,7 +16,7 @@ public MyString(){ //null constructor
 	}
 
 public MyString(String word){ //standard construcor
-	letters = word.toCharArray[];
+	letters = word.toCharArray[].class;
 	currLength = word.length(); //length calculated with array method
 	}
 
@@ -153,7 +153,7 @@ public static int lastIndexOf(MyString str){
 public static MyString substring(int n){
 	int num = n;
 	int index = 0;
-	char[] subArr = new char[](); //empty array made for storage
+	char[] subArr; //empty array made for storage
 	while(num < currLength){ //loop copies every char starting at index n to subArr
 		subArr[index] = letters[num];
 		num++;
@@ -168,7 +168,7 @@ public static MyString substring(int n, int m){
 	int num = n;
 	int max = m;
 	int index = 0;
-	char[] subArr = new char[]();
+	char[] subArr;
 	while((num < max) && (num < currLength)){
 		subArr[index] = letters[num];
 		num++;
