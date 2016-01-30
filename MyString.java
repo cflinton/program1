@@ -41,12 +41,12 @@ public static char[] getArray(){ //method for use in other methods
 public static MyString concat(MyString other){ //concatonation by array method
 	char[] otherArr = other.getArray();
 	int aLen = currLength;
-	int bLen = otherArr.length();
+	int bLen = otherArr.length;
 	char[] c = new char[aLen + bLen];
 	System.arraycopy(letters, 0, c, 0, aLen);
 	System.arraycopy(otherArr, 0, c, aLen, bLen);
 	String str = c.toString();
-	MyString concated = MyString(str);
+	MyString concated = new MyString(str);
 	return concated;
 	}
 
