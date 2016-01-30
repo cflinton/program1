@@ -50,6 +50,18 @@ public MyString concat(MyString other){ //concatonation by array method
 	return concated;
 	}
 
+public MyString concat(String st){ //while the word document says to accept a MyString parameter for the concat method, this overloaded method is necessary to made the test program compile and run
+	char[] otherArr = st.toCharArray();
+ 	int aLen = currLength;
+	int bLen = otherArr.length;
+	char[] c = new char[aLen + bLen];
+	System.arraycopy(letters, 0, c, 0, aLen);
+	System.arraycopy(otherArr, 0, c, aLen, bLen);
+	String str = c.toString();
+	MyString concated = new MyString(str);
+	return concated;
+	}
+
 public boolean equals(MyString other){
 	char[] otherArray = other.getArray();
 	boolean equal;
