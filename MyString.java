@@ -27,7 +27,7 @@ public static int length(){
 private static void ensureCapacity(){
 	}
 
-public static String toString(){
+public String toString(){
 	return letters.toString(); //string gotten with array method
 	}
 
