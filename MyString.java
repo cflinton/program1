@@ -109,8 +109,8 @@ public static int indexOf(MyString str){
 	int n = 0; //counter
 	int n2, n3; //secondary and tertiary counter
 	int index = -1; //value for starting index, is -1 if no match
-	char c1 = '';
-	char c2 = '';
+	char c1 = ' ';
+	char c2 = ' ';
 	char[] strArr = str.getArray();
 	int strLen = str.length(); //length of sub-string 
 	while((n < currLength) && (index == -1)){ //loop checks each value of the MyString for a matching first letter
@@ -136,8 +136,8 @@ public static int indexOf(MyString str){
 
 public static int lastIndexOf(MyString str){
 	char[] strArr = str.getArray();
-	char c1 = '';
-	char c2 = '';
+	char c1 = ' ';
+	char c2 = ' ';
 	int index = -1;
 	int strLen = str.length();
 	int n = currLength - strLen; //the counter starts at the highest number it could possibly be, preventing out of bounds errors and saving time
@@ -167,7 +167,7 @@ public static int lastIndexOf(MyString str){
 public static MyString substring(int n){
 	int num = n;
 	int index = 0;
-	char[] subArr = new char[](); //empty array made for storage
+	char[] subArr = new char[currLength - num]; //empty array made for storage
 	while(num < currLength){ //loop copies every char starting at index n to subArr
 		subArr[index] = letters[num];
 		num++;
@@ -182,7 +182,7 @@ public static MyString substring(int n, int m){
 	int num = n;
 	int max = m;
 	int index = 0; 
-	char[] subArr = new char[]();
+	char[] subArr = new char[max - num];
 	while((num < max) && (num < currLength)){
 		subArr[index] = letters[num];
 		num++;
