@@ -7,7 +7,6 @@ package program1;
 
 import java.lang.Character;
 import java.util.Arrays;
-import org.apache.commons.lang3.ArrayUtils;
 
 public class MyString {
 
@@ -39,9 +38,16 @@ public static char[] getArray(){ //method for use in other methods
 	return letters;
 	}
 
-public static void concat(MyString other){ //concatonation by array method
-	char[] otherArray = other.getArray();
-	letters = ArrayUtils.addAll(letters, otherArray);
+public static MyString concat(MyString other){ //concatonation by array method
+	char[] otherArr = other.getArray();
+	int aLen = currLength;
+	int bLen = otherArr.length();
+	char[] c = new char[aLen + bLen];
+	System.arraycopy(letters, 0, c, 0, aLen);
+	System.arraycopy(otherArr, 0, c, aLen, bLen);
+	String str = c.toString();
+	MyString concated = MyString(str);
+	return concated;
 	}
 
 public static boolean equals(MyString other){
