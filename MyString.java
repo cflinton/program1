@@ -5,6 +5,8 @@
  */
 package program1;
 
+import java.lang.Character;
+
 public class MyString {
 
 private static char[] letters; //the char array
