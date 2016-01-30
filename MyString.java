@@ -63,7 +63,7 @@ public static int compareTo(MyString other) {
 	while((n < length) && (relation == 0)){ //loop compares each letter and stops when they aren't equal
 		c1 = letters[n];
 		c2 = otherArray[n];
-		relation = c1.compareTo(c2);
+		relation = Character.compareTo(c1, c2);
 		n++;
 	}
 	return total;
@@ -79,7 +79,7 @@ public static void toUpper(){
 	char c;
 	while(n < currLength){ //converts each letter to an upper case letter
 		c = letters[n];
-		letters[n] = c.toUpper;
+		letters[n] = Character.toUpper(c);
 		n++;
 	} 
 	}
@@ -89,7 +89,7 @@ public static void toLower(){
 	char c;
 	while(n < currLength){ //converts each letter to a lower case letter
 		c = letters[n];
-		letters[n] = c.toLower;
+		letters[n] = Character.toLower(c);
 		n++;
 	}
 	}
@@ -104,17 +104,17 @@ public static int indexOf(MyString str){
 	while((n < currLength) && (index == -1)){ //loop checks each value of the MyString for a matching first letter
 		c1 = letters[n];
 		c2 = strArr[0];
-		if(c1.equals(c2)){
+		if(Character.equals(c1, c2)){
 			n2 = 0; //match resets secondary counter
 			n3 = n; //tertiary counter set to starting index
 			}
-		while((c1.equals(c2)) && (n2 < strLen)){ //loop compares each letter and stops early if any aren't equal
+		while((Character.equals(c1, c2)) && (n2 < strLen)){ //loop compares each letter and stops early if any aren't equal
 			c1 = letter[n3]; //tertiary counter tracks index on main string
 			c2 = strArr[n2]; //secondary counter tracks index on secondary string
 			n2++;
 			n3++;
 			}
-		if((n2 == strLen) && c1.equals(c2)){ //if the loop checked all the letters in the substring and the last two letters are equal, then the value for the starting index is set to n
+		if((n2 == strLen) && Character.equals(c1, c2)){ //if the loop checked all the letters in the substring and the last two letters are equal, then the value for the starting index is set to n
 			index = n;
 			}
 		n++;
@@ -132,17 +132,17 @@ public static int lastIndexOf(MyString str){
 	while((n >= 0) && (index == -1)){ //loop starts at last letter the first index could be and works backwards
 		c1 = letters[n];
 		c2 = strArr[0];
-		if(c1.equals(c2)){
+		if(Character.equals(c1, c2)){
 			n2 = 0;
 			n3 = n;
 			}
-		while((c1.equals(c2)) && (n2 < strLen)){
+		while((Character.equals(c1, c2)) && (n2 < strLen)){
 			c1 = letters[n3];
 			c2 = strArr[n2];
 			n2++;
 			n3++;
 			}
-		if((n2 == strLen) && c1.equals(c2)){
+		if((n2 == strLen) && Character.equals(c1, c2)){
 			index = n;
 			}
 		n--;
