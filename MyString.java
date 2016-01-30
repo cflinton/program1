@@ -6,6 +6,7 @@
 package program1;
 
 import java.lang.Character;
+import java.util.Arrays;
 
 public class MyString {
 
@@ -51,21 +52,21 @@ public static boolean equals(MyString other){
 	}
 
 public static int compareTo(MyString other) {
-	int length = 0; //base value for length to prevent error checking from whining
+	int strlen = 0; //base value for length to prevent error checking from whining
 	int n = 0; //counter
 	int relation = 0; //used to determine if letter is earlier or later
 	char c1, c2;
 	char[] otherArray = other.getArray();
 	
 	if(currLength < other.length()){ //sets length of loop to shortest array length
-		length = currLength;
+		strlen = currLength;
 	} else{
-		length = other.length;
+		strlen = other.length;
 	}
 	while((n < length) && (relation == 0)){ //loop compares each letter and stops when they aren't equal
 		c1 = letters[n];
 		c2 = otherArray[n];
-		relation = Character.compareTo(c1, c2);
+		relation = Character.compare(c1, c2);
 		n++;
 	}
 	return total;
@@ -81,7 +82,7 @@ public static void toUpper(){
 	char c;
 	while(n < currLength){ //converts each letter to an upper case letter
 		c = letters[n];
-		letters[n] = Character.toUpper(c);
+		letters[n] = Character.toUpperCase(c);
 		n++;
 	} 
 	}
@@ -91,7 +92,7 @@ public static void toLower(){
 	char c;
 	while(n < currLength){ //converts each letter to a lower case letter
 		c = letters[n];
-		letters[n] = Character.toLower(c);
+		letters[n] = Character.toLowerCase(c);
 		n++;
 	}
 	}
@@ -106,17 +107,17 @@ public static int indexOf(MyString str){
 	while((n < currLength) && (index == -1)){ //loop checks each value of the MyString for a matching first letter
 		c1 = letters[n];
 		c2 = strArr[0];
-		if(Character.equals(c1, c2)){
+		if(c1 == c2){
 			n2 = 0; //match resets secondary counter
 			n3 = n; //tertiary counter set to starting index
 			}
-		while((Character.equals(c1, c2)) && (n2 < strLen)){ //loop compares each letter and stops early if any aren't equal
+		while((c1 == c2) && (n2 < strLen)){ //loop compares each letter and stops early if any aren't equal
 			c1 = letter[n3]; //tertiary counter tracks index on main string
 			c2 = strArr[n2]; //secondary counter tracks index on secondary string
 			n2++;
 			n3++;
 			}
-		if((n2 == strLen) && Character.equals(c1, c2)){ //if the loop checked all the letters in the substring and the last two letters are equal, then the value for the starting index is set to n
+		if((n2 == strLen) && (c1 == c2)){ //if the loop checked all the letters in the substring and the last two letters are equal, then the value for the starting index is set to n
 			index = n;
 			}
 		n++;
@@ -134,17 +135,17 @@ public static int lastIndexOf(MyString str){
 	while((n >= 0) && (index == -1)){ //loop starts at last letter the first index could be and works backwards
 		c1 = letters[n];
 		c2 = strArr[0];
-		if(Character.equals(c1, c2)){
+		if(c1 == c2){
 			n2 = 0;
 			n3 = n;
 			}
-		while((Character.equals(c1, c2)) && (n2 < strLen)){
+		while((c1 == c2) && (n2 < strLen)){
 			c1 = letters[n3];
 			c2 = strArr[n2];
 			n2++;
 			n3++;
 			}
-		if((n2 == strLen) && Character.equals(c1, c2)){
+		if((n2 == strLen) && (c1 == c2)){
 			index = n;
 			}
 		n--;
@@ -177,7 +178,7 @@ public static MyString substring(int n, int m){
 		index++;
 		}
 	String str = subArr.toString();
-	MyString newStr = MyString(str);
+	MyString newStr = new MyString(str);
 	return newStr;
 	}
 
