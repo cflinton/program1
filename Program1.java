@@ -5,7 +5,7 @@
  */
 package program1;
 
-import java.util.Date;
+
 import program1.MyString;
 
 public class Program1 {
