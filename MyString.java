@@ -107,7 +107,8 @@ public static void toLower(){
 
 public static int indexOf(MyString str){
 	int n = 0; //counter
-	int n2, n3; //secondary and tertiary counter
+	int n2 = 0;
+	int n3 = 0; //secondary and tertiary counter
 	int index = -1; //value for starting index, is -1 if no match
 	char c1 = ' ';
 	char c2 = ' ';
