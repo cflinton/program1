@@ -6,8 +6,6 @@
 //package program1;
 
 
-import program1.MyString;
-
 public class Program1 {
 
     public static void main(String[] args) {
@@ -18,7 +16,7 @@ public class Program1 {
         String string1 = "Welcome to MyString.";
         System.out.println("Starting string: " + string1);
         
-        MyString myString1 = new MyString(string1);
+	MyString myString1 = new MyString(string1);
         System.out.println("MyString: " + myString1.toString());
         System.out.println("Last char: " + myString1.get(myString1.length()));
         
