@@ -3,7 +3,7 @@
  * Program 1 - MyString
  * CSC230-02 Spring 2016
  */
-package program1;
+//package program1;
 
 import java.lang.Character;
 import java.util.Arrays;
@@ -23,6 +23,11 @@ public MyString(String word){ //standard construcor
 	currLength = word.length(); //length calculated with array method
 	}
 
+public MyString(MyString other){
+	letters = other.letters;
+	currLength = other.currLength;
+	}
+
 public int length(){
 	return currLength;
 	}
@@ -31,7 +36,13 @@ private void ensureCapacity(){
 	}
 
 public String toString(){
-	return letters.toString(); //string gotten with array method
+	String str;
+	if(letters == null) { //this exists to prevent a null pointer exception
+		str = new String(""); 
+	} else {
+		str = new String(letters); //string gotten with array method
+	}
+	return str;
 	}
 
 public char[] getArray(){ //method for use in other methods
@@ -39,25 +50,35 @@ public char[] getArray(){ //method for use in other methods
 	}
 
 public MyString concat(MyString other){ //concatonation by array method
-	char[] otherArr = other.getArray();
+	char[] otherArr;
 	int aLen = currLength;
-	int bLen = otherArr.length;
-	char[] c = new char[aLen + bLen];
-	System.arraycopy(letters, 0, c, 0, aLen);
-	System.arraycopy(otherArr, 0, c, aLen, bLen);
-	String str = c.toString();
-	MyString concated = new MyString(str);
+	int bLen;
+	String str;
+	MyString concated;
+	if(other.letters == null){
+		concated = new MyString(this);
+	} else{
+		otherArr = other.getArray();
+		bLen = otherArr.length;
+		char[] c = new char[aLen + bLen];
+		System.arraycopy(letters, 0, c, 0, aLen);
+		System.arraycopy(otherArr, 0, c, aLen, bLen);
+		str = c.toString();
+		concated = new MyString(str);
+	}
 	return concated;
 	}
 
-public MyString concat(String st){ //while the word document says to accept a MyString parameter for the concat method, this overloaded method is necessary to made the test program compile and run
+public MyString concat(String st){ //while the word document says to accept a MyString parameter for the concat method, this overloaded method is necessary to make the test program compile and run
 	char[] otherArr = st.toCharArray();
  	int aLen = currLength;
 	int bLen = otherArr.length;
-	char[] c = new char[aLen + bLen];
-	System.arraycopy(letters, 0, c, 0, aLen);
-	System.arraycopy(otherArr, 0, c, aLen, bLen);
-	String str = c.toString();
+	String str;
+	if(letters == null){
+		str = otherArr.toString();
+	} else{
+		str = (this.toString()) + st;
+	}
 	MyString concated = new MyString(str);
 	return concated;
 	}
@@ -94,19 +115,24 @@ public int compareTo(MyString other) {
 	}
 
 public char get(int n){
-	return letters[n];
+	char c;
+	if(letters == null) {
+		c = ' ';
+	} else{
+		c = letters[n-1];
+	}
+	return c;
 	}
 
 public MyString toUpper(){
 	int n = 0;
 	char c;
-	char[] outArr = new char[currLength];
+	String str = "";
 	while(n < currLength){ //converts each letter to an upper case letter
 		c = letters[n];
-		outArr[n] = Character.toUpperCase(c);
+		str = str + Character.toUpperCase(c);
 		n++;
-	}
-	String str = outArr.toString();
+		}
 	MyString myStr = new MyString(str);
 	return myStr;
 }
@@ -114,13 +140,12 @@ public MyString toUpper(){
 public MyString toLower(){
 	int n = 0;
 	char c;
-	char[] outArr = new char[currLength];
+	String str = "";
 	while(n < currLength){ //converts each letter to a lower case letter
 		c = letters[n];
-		outArr[n] = Character.toLowerCase(c);
+		str = str + Character.toLowerCase(c);
 		n++;
 	}
-	String str = outArr.toString();
 	MyString myStr = new MyString(str);
 	return myStr;
 }
